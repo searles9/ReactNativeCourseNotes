@@ -4,22 +4,23 @@ import MealDetails from "../components/MealDetails";
 import Subtitle from "../components/MealDetail/Subtitle";
 import List from "../components/MealDetail/List";
 import { useLayoutEffect } from "react";
+import IconButton from "../components/IconButton";
 
 function MealsDetailScreen({ route, navigation }) {
   const mealId = route.params.mealId;
   const selectedMeal = MEALS.find((meal) => meal.id === mealId);
 
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerRight: () => {
-        return <Button title="Tap me" onPress={headerButtonPressHandler} />
-      }
-    });
-  }, [navigation, headerButtonPressHandler]);
-
   function headerButtonPressHandler() {
     console.log('Pressed')
   }
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => {
+        return <IconButton color={'white'} icon={'star'} onPress={headerButtonPressHandler}/>
+      }
+    });
+  }, [navigation, headerButtonPressHandler]);
 
   return (
     <ScrollView style={styles.rootContainer}>
