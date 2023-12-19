@@ -3,8 +3,7 @@ import ExpensesOutput from "../components/ExpensesOutput/ExpensesOutput";
 
 function RecentExpenses() {
   return (
-    <View>
-      <Text>Recent Expenses Screen!</Text>
+    <View style={styles.container}>
       <ExpensesOutput expensesPeriod="Last 7 Days"/>
     </View>
   );
@@ -12,4 +11,8 @@ function RecentExpenses() {
 
 export default RecentExpenses;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  }
+});
