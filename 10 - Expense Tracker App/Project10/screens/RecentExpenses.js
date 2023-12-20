@@ -9,13 +9,17 @@ function RecentExpenses() {
 
   const recentExpenses = expensesCtx.expenses.filter((expense) => {
     const today = new Date();
-    const date7DaysAgo = getDateMinusDays(today, 7)
-    return expense.date >= date7DaysAgo && (expense.date <= today);
-  })
+    const date7DaysAgo = getDateMinusDays(today, 7);
+    return expense.date >= date7DaysAgo && expense.date <= today;
+  });
 
   return (
     <View style={styles.container}>
-      <ExpensesOutput expenses={recentExpenses} expensesPeriod="Last 7 Days"/>
+      <ExpensesOutput
+        fallbackText="No expenses registed for the last 7 days."
+        expenses={recentExpenses}
+        expensesPeriod="Last 7 Days"
+      />
     </View>
   );
 }
@@ -24,6 +28,6 @@ export default RecentExpenses;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
-  }
+    flex: 1,
+  },
 });
