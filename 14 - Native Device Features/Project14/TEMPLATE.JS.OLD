@@ -1,0 +1,13 @@
+import { View, StyleSheet } from "react-native";
+
+function FUNCNAME() {
+    return (
+        <View>
+
+        </View>
+    )
+}
+
+export default FUNCNAME;
+
+const styles = StyleSheet.create({})
