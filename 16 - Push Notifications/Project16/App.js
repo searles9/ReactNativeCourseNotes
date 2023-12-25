@@ -21,6 +21,25 @@ export default function App() {
       }
     })();
   }, []);
+
+  useEffect(() => {
+    // Get the notification data when it comes in
+    const subscription1 = Notifications.addNotificationReceivedListener((notification) => {
+      console.log('NOTIFICATION RECEIVED')
+      console.log(notification)
+    })
+
+    // get the notification data when you tap the notification
+    const subscription2 = Notifications.addNotificationResponseReceivedListener((response) => {
+      console.log('Notification response recieved')
+      console.log(response)
+    });
+
+    return () => {
+      subscription1.remove();
+      subscription2.remove();
+    };
+  }, []) 
   
   function buttonHandler() {
     Notifications.scheduleNotificationAsync({
